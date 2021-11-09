@@ -1,0 +1,106 @@
+---
+  - hosts: all
+    become: true
+    tasks: 
+      - name: Get IP Address for server
+        set_fact:
+          ip_addr: "{{ ansible_ens18.ipv4.address }}"
+      - name: Add HashiCorp's GPG key
+        apt_key:
+          url: https://apt.releases.hashicorp.com/gpg
+          state: present
+      - name: Get LSB Release
+        shell: "echo $(lsb_release -cs)"
+        register: release_ver
+      - name: Read LSB Release
+        debug: 
+          msg: "Release: {{ release_ver.stdout }}"
+      - name: Set Hashicorp repository name
+        set_fact:
+          hashicorp_repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ release_ver.stdout }} main"
+      - name: Read hashicorp_repo
+        debug: 
+          msg: "{{ hashicorp_repo }}"   
+      - name: Block until APT is complete
+        shell: 
+          cmd: 'ps aux | grep apt | grep -v grep'
+        register: result
+        ignore_errors: true
+        until: result.rc == 1
+        retries: 100
+        delay: 30
+      - name: Add Hashicorp repository into sources list
+        ansible.builtin.apt_repository:
+          repo: "{{ hashicorp_repo }}"
+          state: present
+          filename: hashicorp
+      - name: Update Apt Cache
+        apt:
+          update_cache: yes
+      - name: Install vault
+        package:
+          name: 
+            - vault
+      - name: Template out config file
+        template:
+          src: my_vault.hcl.j2
+          dest: /opt/my_vault.hcl
+          force: yes
+      - name: Set Vault_Address variable
+        set_fact:
+            vault_address: "http://{{ ip_addr }}:8200"
+      - name: Set VAULT_ADDR variable
+        set_fact: 
+          vault_env: VAULT_ADDR={{ vault_address }}
+      - name: Read Environment variable
+        shell: "echo $VAULT_ADDR"
+        environment:
+          VAULT_ADDR: "{{ vault_address }}"
+        register: result
+      - name: Read environment variable
+        debug:
+          msg: "Vault_ADDR = {{ result }}"
+      - name: Read environment variable
+        debug:
+          msg: "Vault_Env ~ {{ vault_env }}"
+      - name: Set Vault User
+        set_fact:
+          vault_user: svc_vault_user
+      - name: Add Vault Services User
+        user: 
+          create_home: no
+          force: yes
+          name: "{{ vault_user }}"
+          state: present
+          system: yes
+      - name: Create vault storage directory
+        file:
+          path: /opt/vault-data
+          state: directory
+          owner: "{{ vault_user }}"
+          group: "{{ vault_user }}"
+      - name: Template out SystemD file
+        template:
+          src: vault.service.j2
+          dest: /etc/systemd/system/vault.service
+      - name: Set Vault_ADDR environment variable
+        lineinfile: 
+          path: /etc/environment
+          line: "{{ vault_env }}"
+      - name: Restart
+        reboot:
+      - name: Enable Vault Service
+        service:
+          name: vault
+          enabled: yes
+          state: started
+      - name: Template out vault_init.sh
+        template:
+          src: vault_init.sh.j2
+          dest: /tmp/vault_init.sh
+          mode: a+x
+      - name: Initialize the vault
+        shell: "/tmp/vault_init.sh"
+        
+        #shell: "vault operator init | tee /root/vault_creds"
+        register: vault_init

@@ -12,4 +12,5 @@ The following items will be deployed
 - \*.\*.\*.7   - Secrets Manager (Hashicorp Vault)
 - \*.\*.\*.8   - Individual Password Manager (Bitwarden)
 - \*.\*.\*.9   - Remote Access (Guacamole)
-- \*.\*.\*.10  - External Remote Proxy Server (Nginx)
+- \*.\*.\*.10  - External Reverse Proxy Server (Nginx)
+- \*.\*.\*.11  - PKI 

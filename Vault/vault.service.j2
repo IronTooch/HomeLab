@@ -1,0 +1,14 @@
+[Unit]
+	Description=HashiCorp Vault
+	Documentation=https://learn.hashicorp.com/tutorials/vault/
+	After=network.target
+	
+	[Service]
+	Environment=VAULT_ADDR={{ vault_address }}
+	Type=simple
+	User={{ vault_user }}
+	ExecStart=/usr/bin/vault server -config=/opt/my_vault.hcl
+	Restart=on-failure
+	
+	[Install]
+	WantedBy=multi-user.target
