@@ -21,3 +21,6 @@ apt-get install mariadb-server
 ./ejbca.sh ra setuserstatus superadmin 10
 ./ejbca.sh ra setclearpwd superadmin <MY PASSWD>
 ./ejbca.sh batch
+
+Install superuser.p12 into Browser store
+chown -R chown wildfly:wildfly -R /opt/wildfly/standalone/configuration/keystore/
