@@ -1,0 +1,9 @@
+
+
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+certbot certonly --standalone
+
+
+setfacl -R -m u:myUser:rX /etc/letsencrypt/{live,archive}/example.org
+setfacl -m u:td-agent:rX /etc/letsencrypt/{live,archive}
