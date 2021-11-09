@@ -1,0 +1,15 @@
+apt install openjdk-8-jdk
+sudo update-java-alternatives --set java-1.8.0-openjdk-amd64
+
+wget https://download.jboss.org/wildfly/18.0.1.Final/wildfly-18.0.1.Final.tar.gz
+groupadd -r wildfly
+useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
+
+mv ./wildfly-18.0.1.Final /opt/wildfly
+sudo cp /opt/wildfly/docs/contrib/scripts/systemd/wildfly.conf /etc/wildfly/
+sudo cp /opt/wildfly/docs/contrib/scripts/systemd/launch.sh /opt/wildfly/bin/
+chown -RH wildfly: /opt/wildfly
+
+https://linuxize.com/post/how-to-install-wildfly-on-ubuntu-18-04/
+
+apt install ant
