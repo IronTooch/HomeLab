@@ -13,3 +13,11 @@ chown -RH wildfly: /opt/wildfly
 https://linuxize.com/post/how-to-install-wildfly-on-ubuntu-18-04/
 
 apt install ant
+
+
+apt-get install mariadb-server
+
+
+./ejbca.sh ra setuserstatus superadmin 10
+./ejbca.sh ra setclearpwd superadmin <MY PASSWD>
+./ejbca.sh batch
