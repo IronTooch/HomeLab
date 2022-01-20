@@ -14,3 +14,4 @@ The following items will be deployed
 - \*.\*.\*.9   - Remote Access (Guacamole)
 - \*.\*.\*.10  - External Reverse Proxy Server (Nginx)
 - \*.\*.\*.11  - PKI 
+- \*.\*.\*.12  - Logging (Greylog)

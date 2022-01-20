@@ -1,0 +1,99 @@
+---
+  - hosts: all
+    become: true
+    vars:
+      ejbca_git: "https://github.com/primekeydevs/ejbca-ce.git"
+      app_name: "ejbca"
+      db_name: "ejbca_db"
+      dbuser_username: "ejbca_dbuser"
+      dbuser_password: ""
+    tasks: 
+
+      - name: Fix hardware clock, if required
+        shell: 
+          cmd: "hwclock --systohc"
+
+
+      - name: Install dependencies
+        package:
+          name: 
+            - mariadb-server
+            - python3-pymysql
+      
+      # - name: Check for sync_binlog setting
+      #   community.mysql.mysql_variables:
+      #     variable: innodb_large_prefix
+      #     login_unix_socket: /var/run/mysqld/mysqld.sock
+      #     value: "on"
+      #     mode: persist
+
+
+      - name: Create a database
+        community.mysql.mysql_db:
+          name: "{{ app_name }}_db"
+          login_unix_socket: /var/run/mysqld/mysqld.sock
+          state: present
+          encoding: "utf8"
+          collation: "utf8_unicode_ci"
+          check_implicit_admin: yes
+
+      - name: Create database user with all database privileges
+        community.mysql.mysql_user:
+          name: "{{ app_name }}_dbuser"
+          password: "{{ dbuser_password }}"
+          priv: "{{ app_name }}_db.*:ALL"
+          login_unix_socket: /var/run/mysqld/mysqld.sock
+          state: present
+
+
+
+      - name: Install dependencies
+        package:
+          name: 
+            - unzip
+            - openjdk-8-jdk-headless
+            - ant
+            - ant-optional
+            - psmisc
+            - mariadb-client
+            - bc
+            - patch
+            - curl
+          state: present
+
+      - name: Set Java version
+        shell: "update-java-alternatives --set java-1.8.0-openjdk-amd64"
+          
+      - name: Clone a repo with separate git directory
+        ansible.builtin.git:
+          repo: "{{ ejbca_git }}"
+          dest: /opt/ejbca/source
+          force: yes
+
+      - name: Template out the setup file
+        ansible.builtin.template:
+          src: ejbca-setup.sh.j2
+          dest: "/opt/ejbca/source/bin/extra/ejbca-setup.sh"
+          force: yes
+
+      - name: Create svc_ejbca user
+        user:
+          name: svc_ejbca
+          system: yes
+          create_home: no
+          shell: /bin/bash
+
+      - name: Recursively change ownership of a /opt/ejbca
+        ansible.builtin.file:
+          path: /opt/ejbca
+          state: directory
+          recurse: yes
+          owner: svc_ejbca
+          group: svc_ejbca
+
+      - name: Next steps
+        ansible.builtin.debug:
+          msg:
+          - "Installation must be run manually, because there are interactive prompts"
+          - "to do so, switch to the service user with sudo 'su svc_ejbca'"
+          - "then 'cd /opt/ejbca', and './git/bin/extra/ejbca-setup.sh"    

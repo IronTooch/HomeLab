@@ -1,0 +1,42 @@
+---
+  - hosts: all
+    become: true
+    vars:
+      app_name: ""
+      app_user_pw: ""
+    tasks: 
+
+      - name: Fix hardware clock, if required
+        shell: 
+          cmd: "hwclock --systohc"
+
+      - name: Install dependencies
+        package:
+          name: 
+            - mariadb-server
+            - python3-pymysql
+      
+      # - name: Check for sync_binlog setting
+      #   community.mysql.mysql_variables:
+      #     variable: innodb_large_prefix
+      #     login_unix_socket: /var/run/mysqld/mysqld.sock
+      #     value: "on"
+      #     mode: persist
+
+
+      - name: Create a database
+        community.mysql.mysql_db:
+          name: "{{ app_name }}_db"
+          login_unix_socket: /var/run/mysqld/mysqld.sock
+          state: present
+          encoding: "utf8mb4"
+          collation: "utf8mb4_unicode_ci"
+          check_implicit_admin: yes
+
+      - name: Create database user with all database privileges
+        community.mysql.mysql_user:
+          name: "{{ app_name }}_dbuser"
+          password: "{{ app_user_pw }}"
+          priv: "{{ app_name }}_db.*:ALL"
+          login_unix_socket: /var/run/mysqld/mysqld.sock
+          state: present
