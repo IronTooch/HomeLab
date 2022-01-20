@@ -1,0 +1,11 @@
+---
+  - hosts: all
+    become: true
+    vars:
+      app_name: ""
+      app_user_pw: ""
+    tasks: 
+
+      - name: Fix hardware clock, if required
+        shell: 
+          cmd: "hwclock --systohc"

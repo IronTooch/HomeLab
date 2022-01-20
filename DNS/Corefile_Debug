@@ -1,0 +1,13 @@
+. {
+    hosts 
+    ready
+    health
+    log
+    errors
+    
+}
+
+coredns.test {
+    ready
+    whoami
+}

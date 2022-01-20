@@ -34,6 +34,13 @@
           state: present
           system: yes
 
+      - name: Make CoreDNS log directory
+        ansible.builtin.file:
+          path: /var/log/CoreDNS
+          state: directory
+          owner: "{{ coredns_service_user }}"
+          group: "{{ coredns_service_user }}"
+          mode: '0755'
 
       - name: Template out service file
         ansible.builtin.template:

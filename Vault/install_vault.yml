@@ -41,6 +41,7 @@
         package:
           name: 
             - vault
+            - jq
       - name: Template out config file
         template:
           src: my_vault.hcl.j2
@@ -104,3 +105,5 @@
         
         #shell: "vault operator init | tee /root/vault_creds"
         register: vault_init
+
+#TODO - Add alias to make reading PKI values easier
