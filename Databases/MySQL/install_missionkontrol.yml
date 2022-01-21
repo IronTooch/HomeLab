@@ -1,0 +1,45 @@
+---
+  - hosts: all
+    become: true
+    vars:
+      app_name: ""
+      app_user_pw: ""
+    tasks: 
+
+      - name: Fix hardware clock, if required
+        shell: 
+          cmd: "hwclock --systohc"
+
+      - name: Add missionkontrol Services User
+        user: 
+          name: "svc_missionkontrol"
+          create_home: no
+          force: yes
+          state: present
+          system: yes
+          shell: /bin/bash
+      
+      - name: Create missionkontrol storage directory
+        file:
+          path: /opt/missionkontrol
+          state: directory
+          owner: "svc_missionkontrol"
+          group: "svc_missionkontrol"
+      
+
+
+      - name: Download Mission Kontrol Installation file
+        ansible.builtin.get_url:
+          url: "https://missionkontrol.io/auto-install.sh"
+          dest: "/opt/missionkontrol/auto-install.sh"
+          force: "yes"
+          owner: "svc_missionkontrol"
+          group: "svc_missionkontrol"
+          mode: a+x
+
+      - name: Install Mission Kontrol
+        ansible.builtin.shell:
+          cmd:  "./auto-install.sh --run"
+          chdir: "/opt/missionkontrol"
+        become: yes
+      
