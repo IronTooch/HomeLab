@@ -40,10 +40,11 @@ Others
 - transfer.sh
 - Big Blue Button (Maybe)
 Traefik (Maybe)
-- Strapi
+- Strapi CMS
 - Netdata
 - Managing Docker (Portainer?)
 - Reverse Proxy (Varnish?)
+- MATRIX BRIDE
 
 - CMS (Joomla / Grav / Gatsby)
 
