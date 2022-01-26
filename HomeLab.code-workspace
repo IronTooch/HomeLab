@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../AnsibleSnippets-VSCode"
+		},
+		{
+			"path": "../AnsibleCollections/irontooch/homelab"
 		}
 	],
 	"settings": {}

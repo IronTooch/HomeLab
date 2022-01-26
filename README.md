@@ -23,7 +23,7 @@ Others
 - Notifications
 - Personal Information Manager
 - PrivateBin
-- Polr
+- URL Shortner Polr
 - Plex
 - Homepage?
 - CI / CD? (Strider / Harness)
@@ -45,6 +45,7 @@ Traefik (Maybe)
 - Managing Docker (Portainer?)
 - Reverse Proxy (Varnish?)
 - MATRIX BRIDE
+- BounceCA
 
 - CMS (Joomla / Grav / Gatsby)
 
