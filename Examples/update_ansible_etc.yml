@@ -1,0 +1,13 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: all
+  become: true
+  vars:
+     ansible_config: "/etc/ansible/ansible.cfg"
+  tasks: 
+
+     - name: Replace old inventory plugin with new one
+       replace:
+        path: "{{ ansible_config }}"
+        regexp: ""
+        replace: "enable_plugins = host_list, script, auto, yaml, ini, toml, community.general.proxmox, virtualbox, constructed"
