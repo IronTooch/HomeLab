@@ -1,6 +1,21 @@
 # HomeLab
 Establishing a HomeLab environment with some basic infrastructure items
 
+![GitHub all releases](https://img.shields.io/github/downloads-pre/irontooch/HomeLab/total)
+![GitHub repo size](https://img.shields.io/github/repo-size/IronTooch/HomeLab)
+![GitHub issues](https://img.shields.io/github/issues-raw/Irontooch/HomeLab)
+![GitHub Open PRs](https://badgen.net/github/open-prs/Irontooch/HomeLab)
+![GitHub commits since tagged version](https://img.shields.io/github/commits-since/IronTooch/HomeLab/v0.1.0?label=commits)
+![GitHub last commit](https://img.shields.io/github/last-commit/IronTooch/HomeLab)
+![GitHub Release Date](https://img.shields.io/github/release-date-pre/Irontooch/HomeLab)
+![GitHub Maintained](https://img.shields.io/maintenance/yes/2022)
+![GitHub](https://img.shields.io/github/license/IronTooch/HomeLab)
+![Forks](https://img.shields.io/github/forks/Irontooch/HomeLab.svg)
+![Stars](https://img.shields.io/github/stars/Irontooch/HomeLab.svg)
+![Watchers](https://img.shields.io/github/watchers/Irontooch/HomeLab.svg)
+![Follow](https://img.shields.io/github/followers/IronTooch.svg?style=social&label=Follow&maxAge=2592000)
+
+
 The following items will be deployed
 
 - \*.\*.\*.1   - Firewall
