@@ -65,3 +65,18 @@
           dest: "/usr/local/bin/docker-compose"
           mode: a+x
 
+      - name: Add command to kill all containers
+        lineinfile:
+          path: /root/.bash_aliases
+          line: "alias docker_killAll='docker container kill $(docker ps -q)'"
+          create: yes
+      - name: Add command to kill delete all containers
+        lineinfile:
+          path: /root/.bash_aliases
+          line: "alias docker_ctrDeleteAll='docker container rm $(docker ps -a -q)'"
+          create: yes
+      - name: Add command to kill delete all container images
+        lineinfile:
+          path: /root/.bash_aliases
+          line: "alias docker_imgDeleteAll='docker image rm $(docker images -a -q)'"
+          create: yes
