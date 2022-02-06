@@ -20,7 +20,7 @@ The following items will be deployed
 
 - \*.\*.\*.1   - Firewall
 - \*.\*.\*.2   - DNS - CoreDNS
-- \*.\*.\*.3   - PKI ()
+- \*.\*.\*.3   - PKI (Smallstep CA)
 - \*.\*.\*.4   - Individual Password Manager (Bitwarden)
 - \*.\*.\*.5   - Logging (Greylog)
 - \*.\*.\*.6   - User Accounts / LDAP (Samba 4)
