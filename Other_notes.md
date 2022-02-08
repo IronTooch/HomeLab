@@ -26,3 +26,6 @@
 * Dashboard
 * User 
 * Storage Management
+
+Start with a Proxmox URL and an inventory
+Spin up first host, deploy CA. Slurp Fingerprint and password
