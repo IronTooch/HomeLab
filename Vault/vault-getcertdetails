@@ -1,6 +1,0 @@
-#alias vault-getcert='function _(){ vault read -format=json $1/cert/$2 | jq -r '"'"'.data.certificate'"'"'; }; _'
-#alias vault-getcertdetails='function _(){ vault read -format=json $1/cert/$2 | jq -r '"'"'.data.certificate'"'"' | openssl x509 -in - -noout -text; }; _'
-
-DEFAULT_PKIVAULT=pki_int
-alias vault-getcert='function _(){ vault read -format=json $DEFAULT_PKIVAULT/cert/$2 | jq -r '"'"'.data.certificate'"'"'; }; _'
-alias vault-getcertdetails='function _(){ vault read -format=json $DEFAULT_PKIVAULT/cert/$2 | jq -r '"'"'.data.certificate'"'"' | openssl x509 -in - -noout -text; }; _'

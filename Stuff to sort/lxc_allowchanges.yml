@@ -1,8 +1,0 @@
-
----
-- hosts: all
-  become: yes
-  tasks:
-    # touch /etc/.pve-ignore.hosts
-    # touch /etc/.pve-ignore.hostname
-    # apt-get remove apparmor --purge

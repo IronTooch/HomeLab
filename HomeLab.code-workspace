@@ -8,10 +8,11 @@
 		},
 		{
 			"path": "../AnsibleCollections/irontooch/homelab"
-		},
-		{
-			"path": "../AnsibleRole-SmallstepCA"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"yaml.schemas": {
+			"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json": "file:///c%3A/Users/steve/Nextcloud/Development/Git/HomeLab/Local/proxmox.manualinventory.yml"
+		}
+	}
 }
