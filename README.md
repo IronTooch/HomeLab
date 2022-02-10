@@ -27,16 +27,17 @@ The following items will be deployed
 - \*.\*.\*.7   - IPAM (Netbox / NIPAP / phpIPAM / )
 - \*.\*.\*.8   - Source Code Control (Gitea)
 - \*.\*.\*.9   - Ansible Tower / Ansible Symmantec
-- \*.\*.\*.10  - MySQL Manager (MissionKontrol)
-- \*.\*.\*.11  - DNS Adblocker
-- \*.\*.\*.12  - External Reverse Proxy Server (Nginx)
-- \*.\*.\*.13  - Remote Access (Guacamole)
-- \*.\*.\*.14  - SSO / Auth Managemet (Authelia?)
-- \*.\*.\*.15  - Homepage
-- \*.\*.\*.16  - Uptime / Status Page
-- \*.\*.\*.17  - Chat
-- \*.\*.\*.18  - Synapse / Matrix
-- \*.\*.\*.19  - Notica
+- \*.\*.\*.10  - Metal as a Service (MaaS)
+- \*.\*.\*.11  - MySQL Manager (MissionKontrol)
+- \*.\*.\*.12  - DNS Adblocker
+- \*.\*.\*.13  - External Reverse Proxy Server (Nginx)
+- \*.\*.\*.14  - Remote Access (Guacamole)
+- \*.\*.\*.15  - SSO / Auth Managemet (Authelia?)
+- \*.\*.\*.16  - Homepage
+- \*.\*.\*.17  - Uptime / Status Page
+- \*.\*.\*.18  - Chat
+- \*.\*.\*.19  - Synapse / Matrix
+- \*.\*.\*.20  - Notica
 
 Bookmarks
 Monica
@@ -94,3 +95,8 @@ Others
 
 
 - https://cockpit-project.org/
+
+Make custom /etc/motd
+https://www.putorius.net/custom-motd-login-screen-linux.html
+
+MaaS - VLAN 60
