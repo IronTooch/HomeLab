@@ -12,7 +12,8 @@
 	],
 	"settings": {
 		"yaml.schemas": {
-			"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json": "file:///c%3A/Users/steve/Nextcloud/Development/Git/HomeLab/Local/proxmox.manualinventory.yml"
+			"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json": "file:///c%3A/Users/steve/Nextcloud/Development/Git/HomeLab/Local/proxmox.manualinventory.yml",
+			"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-tasks.json": "file:///c%3A/Users/steve/Nextcloud/Development/Git/AnsibleCollections/irontooch/homelab/roles/sy_ajenti/tasks/01_install_dependencies.yml"
 		}
 	}
 }
