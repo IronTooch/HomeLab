@@ -22,9 +22,9 @@ The following items will be deployed
 - \*.\*.\*.2   - DNS - CoreDNS
 - \*.\*.\*.3   - PKI (Smallstep CA)
 - \*.\*.\*.4   - Individual Password Manager (Bitwarden)
-- \*.\*.\*.5   - Logging (Greylog)
-- \*.\*.\*.6   - User Accounts / LDAP (Samba 4)
-- \*.\*.\*.7   - IPAM (Netbox / NIPAP / phpIPAM / )
+- \*.\*.\*.5   - User Accounts / LDAP (Samba 4)
+- \*.\*.\*.6   - IPAM (Netbox / NIPAP / phpIPAM / )
+- \*.\*.\*.7   - Logging (Greylog)
 - \*.\*.\*.8   - Source Code Control (Gitea)
 - \*.\*.\*.9   - Ansible Tower / Ansible Symmantec
 - \*.\*.\*.10  - Metal as a Service (MaaS)

@@ -28,4 +28,10 @@
 * Storage Management
 
 Start with a Proxmox URL and an inventory
-Spin up first host, deploy CA. Slurp Fingerprint and password
+1) Spin up first host, deploy DNS.
+2) Add DNS record. Spin up second host, deploy CA. Bring CA data back to control node. Slurp Fingerprint and password. 
+3) Add DNS record. Spin up third host. Deploy Bitwarden. Deposit all cached creds from CA and SSH. 
+4) Add DNS record. Spin up fourth host. Deploy LDAP. 
+5) Add DNS record. Spin up fifth host. Deploy IPAM. Add all records up to this point
+6) Add DNS record. Spin up host 14. Deploy Apache Guacamole. Add all hosts up to this point
+6) 
