@@ -1,0 +1,7 @@
+all: # keys must be unique, i.e. only one 'hosts' per group
+    hosts:
+        local:
+            ansible_host: 127.0.0.1
+            ansible_port: 51022
+    vars:
+        group_var1: value2
