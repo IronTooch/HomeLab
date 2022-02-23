@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../AnsibleCollections/irontooch/homelab"
+		},
+		{
+			"path": "../AnsibleRole-Davis"
 		}
 	],
 	"settings": {
