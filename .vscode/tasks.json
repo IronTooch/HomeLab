@@ -5,11 +5,9 @@
     "tasks": [
         {
             "label": "Run Test Play",
-            "detail": "Deploys to local Linux Global Snippet location",
+            "detail": "Run test_play.yml",
             "type": "shell",
-            "linux": {
-                "command": "/usr/local/bin/ansible-playbook /mnt/c/Users/steve/Nextcloud/Development/Git/HomeLab/Local/test_play.yml -i 10.3.40.254, -u local_admin"
-            },
+            "command": "/usr/local/bin/ansible-playbook /mnt/c/Users/steve/Nextcloud/Development/Git/HomeLab/Local/test_play.yml -i 10.3.40.254, -u local_admin",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
