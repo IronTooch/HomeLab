@@ -35,22 +35,24 @@ The following items will be deployed
 - \*.\*.\*.15  - SSO / Auth Managemet (Authelia?)
 - \*.\*.\*.16  - Homepage
 - \*.\*.\*.17  - Uptime / Status Page
-- \*.\*.\*.18  - Chat
+- \*.\*.\*.18  - iCal Server
 - \*.\*.\*.19  - Synapse / Matrix
 - \*.\*.\*.20  - Notica
 
-Bookmarks
-Monica
-Polr
-Mastadon
-Firefly III
-Calendar something or other + Contacts
-Nextcloud
-RSS Reader
+Definites
+- \*.\*.\*.21 - Calendar Viewer
+- \*.\*.\*.22 - Bookmarks
+- \*.\*.\*.23 - RSS Reader
+- \*.\*.\*.24 - Polr
+- \*.\*.\*.25 - File Transfer
+- \*.\*.\*.26 - One Time Secrets (https://ots.fyi/)
 
 
 Others
-- Chat
+- \*.\*.\*.20 - Chat (Mattermost)
+- Monica
+- Mastadon
+- Firefly III
 - Notifications
 - Personal Information Manager
 - PrivateBin
