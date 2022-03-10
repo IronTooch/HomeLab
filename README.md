@@ -49,10 +49,11 @@ Definites
 
 
 Others
-- \*.\*.\*.20 - Chat (Mattermost)
+- \*.\*.\*.27 - Chat (Mattermost)
+- \*.\*.\*.28 - Firefly III
 - Monica
 - Mastadon
-- Firefly III
+
 - Notifications
 - Personal Information Manager
 - PrivateBin
